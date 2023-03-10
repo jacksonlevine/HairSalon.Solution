@@ -17,6 +17,7 @@ body
   display:flex;
   flex-direction: column;
   align-items: center;
+  transition: all 100ms;
 }
 .stylistOutside
 {
@@ -25,4 +26,14 @@ body
 .clientOutside
 {
   background-color:rgb(243, 234, 181);
+}
+.clientOutside:hover,
+.stylistOutside:hover
+{
+  transform:scale(1.2);
+}
+.noScale.clientOutside:hover,
+.noScale.stylistOutside:hover
+{
+  transform:scale(1.0);
 }

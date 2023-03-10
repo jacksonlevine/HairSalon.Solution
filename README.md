@@ -1,6 +1,6 @@
 # Claires Salon Stylists and Clients
 
-#### By Jackson
+#### By Jackson Levine
 
 ## Technologies Used
 
