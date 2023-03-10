@@ -24,13 +24,9 @@ else
     </div>
   }
 }
-
-
 <p>@Html.ActionLink("Add new client for this stylist", "Create", "Clients", new { thisStylistId = Model.StylistId })</p>
-
 <p>@Html.ActionLink("Edit stylist", "Edit", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Delete stylist", "Delete", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Back to list", "Index")</p>
 </div>
-
 <p>@Html.ActionLink("View clients of all stylists", "Index", "Clients")</p>
