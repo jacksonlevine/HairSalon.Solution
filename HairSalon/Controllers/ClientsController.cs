@@ -27,7 +27,7 @@ namespace HairSalon.Controllers
       {
         var selected = list.Where(x => int.Parse(x.Value) == thisStylistId).First();
         selected.Selected = true;
-        ViewBag.stylistName = selected.Text;
+        ViewBag.StylistName = selected.Text;
       }
       
       ViewBag.StylistId = list;
