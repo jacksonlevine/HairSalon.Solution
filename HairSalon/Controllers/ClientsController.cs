@@ -24,9 +24,16 @@ namespace HairSalon.Controllers
       return View(model);
     }
 
-    public ActionResult Create()
+    public ActionResult Create(int? thisStylistId = null)
     {
-      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      SelectList list = new SelectList(_db.Stylists, "StylistId", "Name");
+      if(thisStylistId != null) 
+      {
+        var selected = list.Where(x => int.Parse(x.Value) == thisStylistId).First();
+        selected.Selected = true;
+      }
+      ViewBag.StylistId = list;
+      
       return View();
     }
 
@@ -69,7 +76,7 @@ namespace HairSalon.Controllers
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
-    
+
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
