@@ -3,14 +3,12 @@ body
   display:flex;
   justify-content: center;
 }
-
 .container 
 {
   display:flex;
   flex-direction: column;
   align-items: flex-start;
 }
-
 .clientOutside,
 .stylistOutside
 {
@@ -20,12 +18,10 @@ body
   flex-direction: column;
   align-items: center;
 }
-
 .stylistOutside
 {
   background-color: lightblue;
 }
-
 .clientOutside
 {
   background-color:rgb(243, 234, 181);
