@@ -44,11 +44,17 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-    public ActionResult Edit(int id)
+    public ActionResult Edit(int id, int? thisStylistId = null)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id); 
-      //"Client => etc" in the parentheses above is a lambda expression, a shortened way of writing an anonymous function
-      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
+      SelectList list = new SelectList(_db.Stylists, "StylistId", "Name");
+      if(thisStylistId != null) 
+      {
+        var selected = list.Where(x => int.Parse(x.Value) == thisStylistId).First();
+        selected.Selected = true;
+        ViewBag.StylistName = selected.Text;
+      }
+      ViewBag.StylistId = list;
       return View(thisClient);
     }
     [HttpPost]

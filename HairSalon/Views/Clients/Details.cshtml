@@ -9,7 +9,7 @@
   <div class="stylistOutside">
   <h3>@Html.DisplayNameFor(model => model.Stylist): @Html.ActionLink(Model.Stylist.Name, "Details", "Stylists", new { id = Model.StylistId })<h3>
   </div>
-  <p>@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId })</p>
+  <p>@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId, thisStylistId = Model.StylistId})</p>
   <p>@Html.ActionLink("Delete Client", "Delete", new { id = Model.ClientId })</p>
   <p>@Html.ActionLink("Back to list", "Index")</p>
 </div>
