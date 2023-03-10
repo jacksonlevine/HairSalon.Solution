@@ -4,18 +4,15 @@ using System.Linq;
 using HairSalon.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
-
 namespace HairSalon.Controllers
 {
   public class ClientsController : Controller
   {
     private readonly HairSalonContext _db;
-
     public ClientsController(HairSalonContext db)
     {
       _db = db;
     }
-
     public ActionResult Index()
     {
       List<Client> model = _db.Clients
@@ -23,7 +20,6 @@ namespace HairSalon.Controllers
                             .ToList();
       return View(model);
     }
-
     public ActionResult Create(int? thisStylistId = null)
     {
       SelectList list = new SelectList(_db.Stylists, "StylistId", "Name");
@@ -33,10 +29,8 @@ namespace HairSalon.Controllers
         selected.Selected = true;
       }
       ViewBag.StylistId = list;
-      
       return View();
     }
-
     [HttpPost]
     public ActionResult Create(Client client)
     {
@@ -48,7 +42,6 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Edit(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id); 
@@ -56,7 +49,6 @@ namespace HairSalon.Controllers
       ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View(thisClient);
     }
-
     [HttpPost]
     public ActionResult Edit (Client client)
     {
@@ -76,7 +68,6 @@ namespace HairSalon.Controllers
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
-
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {

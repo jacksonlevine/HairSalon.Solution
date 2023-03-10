@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using HairSalon.Models;
-
 namespace HairSalon.Controllers
 {
   public class StylistsController : Controller
@@ -18,12 +17,10 @@ namespace HairSalon.Controllers
       List<Stylist> model = _db.Stylists.ToList();
       return View(model);
     }
-
     public ActionResult Create()
     {
       return View();
     }
-    
     [HttpPost]
     public ActionResult Create(Stylist stylist)
     {
@@ -31,13 +28,11 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Edit(int id)
     {
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       return View(thisStylist);
     }
-
     [HttpPost]
     public ActionResult Edit(Stylist stylist)
     {
@@ -46,7 +41,6 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Details(int id)
     {
       Stylist thisStylist = _db.Stylists
@@ -54,13 +48,11 @@ namespace HairSalon.Controllers
                                   .FirstOrDefault(stylist => stylist.StylistId == id);
       return View(thisStylist);
     }
-
     public ActionResult Delete(int id)
     {
       Stylist thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
       return View(thisStylist);
     }
-
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
