@@ -20,6 +20,15 @@ namespace HairSalon.Controllers
                             .ToList();
       return View(model);
     }
+    [HttpPost]
+    public ActionResult Index(string search)
+    {
+      List<Client> model = _db.Clients
+                            .Where(client => client.Name == search)
+                            .Include(client => client.Stylist)
+                            .ToList();
+      return View(model);
+    }
     public ActionResult Create(int? thisStylistId = null)
     {
       SelectList list = new SelectList(_db.Stylists, "StylistId", "Name");
