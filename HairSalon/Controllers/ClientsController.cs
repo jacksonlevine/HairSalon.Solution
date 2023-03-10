@@ -57,7 +57,6 @@ namespace HairSalon.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
-
     public ActionResult Details(int id)
     {
       Client thisClient = _db.Clients
@@ -65,13 +64,12 @@ namespace HairSalon.Controllers
                           .FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
-
     public ActionResult Delete(int id)
     {
       Client thisClient = _db.Clients.FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
-
+    
     [HttpPost, ActionName("Delete")]
     public ActionResult DeleteConfirmed(int id)
     {
