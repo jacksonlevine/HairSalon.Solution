@@ -1,15 +1,12 @@
 @{
   Layout = "_Layout";
 }
-
 @model HairSalon.Models.Stylist
 @using HairSalon.Models
-
 <div class="stylistOutside">
 <h2>Stylist Details</h2>
 <hr />
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
-
 @if (@Model.Clients.Count == 0)
 {
   <h3>No clients have been added to this Stylist yet!</h3>
