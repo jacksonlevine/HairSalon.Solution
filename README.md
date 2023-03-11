@@ -13,7 +13,7 @@
 * CSS
 
 ## Description
-A website for Claire to edit a list of her stylists, and view a list of clients for each stylist.
+A website for Claire to view and edit a list of her stylists, and view a list of clients for each stylist.
 
 ### Setup Instructions
 
@@ -40,7 +40,7 @@ A website for Claire to edit a list of her stylists, and view a list of clients 
     }
   }
   ```
-  
+
 **IMPORTANT:** Be sure to replace your username, password, and name of your database for the fields [YOUR-USER-HERE], [YOUR-PASSWORD-HERE], AND [YOUR-DB-NAME].
 
 4. If it is not already present, create a .gitignore file and add "appsettings.json", "bin", and "obj" to the ignored file list.  
