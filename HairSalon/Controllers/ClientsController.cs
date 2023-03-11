@@ -24,7 +24,7 @@ namespace HairSalon.Controllers
     public ActionResult Index(string search)
     {
       List<Client> model = _db.Clients
-                            .Where(client => client.Name == search)
+                            .Where(client => client.Name.Contains(search))
                             .Include(client => client.Stylist)
                             .ToList();
       return View(model);

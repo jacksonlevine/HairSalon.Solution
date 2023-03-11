@@ -11,5 +11,6 @@
   </div>
   <p>@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId, thisStylistId = Model.StylistId})</p>
   <p>@Html.ActionLink("Delete Client", "Delete", new { id = Model.ClientId })</p>
-  <p>@Html.ActionLink("Back to list", "Index")</p>
+  <p>@Html.ActionLink("Back to stylist", "Details", "Stylists", new {id=Model.StylistId})</p>
 </div>
+  <p>@Html.ActionLink("List of all clients", "Index", "Clients")</p>

@@ -17,6 +17,12 @@ namespace HairSalon.Controllers
       List<Stylist> model = _db.Stylists.ToList();
       return View(model);
     }
+    [HttpPost]
+    public ActionResult Index(string search)
+    {
+      List<Stylist> model = _db.Stylists.Where(stylist => stylist.Name.Contains(search)).ToList();
+      return View(model);
+    }
     public ActionResult Create()
     {
       return View();

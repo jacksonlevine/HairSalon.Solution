@@ -3,16 +3,17 @@
 }
 @using HairSalon.Models;
 <h1>Clients</h1>
-<form method="post" action="/clients/index">
-<input type="text" id="search" name="search">
-<button type="submit">Search by Name</button>
-</form>
+
 @if (@Model.Count == 0)
 {
   <h3>No clients have been added yet!</h3>
 }
 else
 {
+  <form method="post" action="/clients/index">
+  <input type="text" id="search" name="search">
+  <button type="submit">Search by Name</button>
+  </form>
   <ul>
     @foreach (Client client in Model)
     {

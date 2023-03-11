@@ -3,15 +3,23 @@
 }
 @using HairSalon.Models;
 <h1>Stylists</h1>
+
+<form method="post" action="/stylists/index">
+<input type="text" id="search" name="search">
+<button type="submit">Search by Name</button>
+</form>
 @if (@Model.Count == 0)
 {
-  <h3>No stylists have been added.</h3>
+  <h3>No stylists have been added, or none meet search criteria.</h3>
 } 
-@foreach(Stylist Stylist in Model)
+else 
 {
-  <div class="stylistOutside">
-    @Html.ActionLink($"{Stylist.Name}", "Details", new { id = Stylist.StylistId })
-  </div>
+  @foreach(Stylist Stylist in Model)
+  {
+    <div class="stylistOutside">
+      @Html.ActionLink($"{Stylist.Name}", "Details", new { id = Stylist.StylistId })
+    </div>
+  }
 }
 <p>@Html.ActionLink("Add new Stylist", "Create")</p>
 <p>@Html.ActionLink("Home", "Index", "Home")</p>
