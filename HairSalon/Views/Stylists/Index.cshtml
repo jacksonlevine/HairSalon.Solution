@@ -3,10 +3,9 @@
 }
 @using HairSalon.Models;
 <h1>Stylists</h1>
-
 <form method="post" action="/stylists/index">
-<input type="text" id="search" name="search">
-<button type="submit">Search by Name</button>
+  <input type="text" id="search" name="search">
+  <button type="submit">Search by Name</button>
 </form>
 @if (@Model.Count == 0)
 {

@@ -15,18 +15,13 @@ namespace HairSalon.Controllers
     }
     public ActionResult Index()
     {
-      List<Client> model = _db.Clients
-                            .Include(client => client.Stylist)
-                            .ToList();
+      List<Client> model = _db.Clients.Include(client => client.Stylist).ToList();
       return View(model);
     }
     [HttpPost]
     public ActionResult Index(string search)
     {
-      List<Client> model = _db.Clients
-                            .Where(client => client.Name.Contains(search))
-                            .Include(client => client.Stylist)
-                            .ToList();
+      List<Client> model = _db.Clients.Where(client => client.Name.Contains(search)).Include(client => client.Stylist).ToList();
       return View(model);
     }
     public ActionResult Create(int? thisStylistId = null)
@@ -75,9 +70,7 @@ namespace HairSalon.Controllers
     }
     public ActionResult Details(int id)
     {
-      Client thisClient = _db.Clients
-                          .Include(client => client.Stylist)
-                          .FirstOrDefault(client => client.ClientId == id);
+      Client thisClient = _db.Clients.Include(client => client.Stylist).FirstOrDefault(client => client.ClientId == id);
       return View(thisClient);
     }
     public ActionResult Delete(int id)
